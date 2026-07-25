@@ -1,4 +1,4 @@
-#include "learn_topic_publisher/TopicPublisher.h"
+#include "TopicPublisher.h"
 #include <chrono>
 
 namespace learn_topic

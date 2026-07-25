@@ -14,6 +14,7 @@
 
 #include "rclcpp/rclcpp.hpp"
 #include "std_msgs/msg/string.hpp"
+#include <functional>
 
 namespace learn_topic
 {

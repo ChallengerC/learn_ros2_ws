@@ -1,4 +1,4 @@
-#include "learn_topic_publisher/TopicPublisher.h"
+#include "TopicPublisher.h"
 #include <memory>
 
 int main(int argc, char * argv[])
