@@ -18,6 +18,8 @@
   <exec_depend>rosidl_default_runtime</exec_depend>
   <!-- 声明当前包属于 ROS 2 接口包 -->
   <member_of_group>rosidl_interface_packages</member_of_group>
+  <!-- 动作通信信息 -->
+  <depend>action_msgs</depend>
 
   <export>
     <build_type>ament_cmake</build_type>

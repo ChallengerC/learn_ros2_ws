@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-project(base_interfaces_demo)
+project(learn_action_client)
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
@@ -7,19 +7,30 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
-# uncomment the following section in order to fill in
-# further dependencies manually.
-# find_package(<dependency> REQUIRED)
+find_package(rclcpp REQUIRED)
+find_package(rclcpp_action REQUIRED)
+find_package(base_interfaces_demo REQUIRED)
 
-#REQUIRED 必须找到，否则停止构建
-find_package(rosidl_default_generators REQUIRED)
+include_directories(include)
 
-rosidl_generate_interfaces(${PROJECT_NAME}
-  "msg/Student.msg"
-  "srv/AddInts.srv"
-  "action/Progress.action"
+add_executable(action_client_node
+  main.cpp
+  src/ActionClient.cpp
 )
 
+ament_target_dependencies(action_client_node
+  rclcpp
+  rclcpp_action
+  base_interfaces_demo
+)
+
+install(TARGETS action_client_node
+  DESTINATION lib/${PROJECT_NAME}
+)
+
+install(DIRECTORY include/
+  DESTINATION include
+)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
