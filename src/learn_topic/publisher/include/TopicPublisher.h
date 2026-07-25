@@ -15,6 +15,7 @@
 
 #include "rclcpp/rclcpp.hpp"
 #include "std_msgs/msg/string.hpp"
+#include "base_interfaces_demo/msg/student.hpp"
 #include <functional>
 
 namespace learn_topic
@@ -32,10 +33,10 @@ namespace learn_topic
         void timer_callback();
 
     private:
-        TimerCallback                                       timecallback_;
-        size_t                                              count_;
-        rclcpp::TimerBase::SharedPtr                        timer_;
-        rclcpp::Publisher<std_msgs::msg::String>::SharedPtr publisher_;
+        TimerCallback                                                    timecallback_;
+        size_t                                                           count_;
+        rclcpp::TimerBase::SharedPtr                                     timer_;
+        rclcpp::Publisher<base_interfaces_demo::msg::Student>::SharedPtr publisher_;
     };
 
 }

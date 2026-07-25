@@ -13,12 +13,12 @@
 #define _TOPIC_SUBSCRIBER_H_
 
 #include "rclcpp/rclcpp.hpp"
-#include "std_msgs/msg/string.hpp"
+#include "base_interfaces_demo/msg/student.hpp"
 #include <functional>
 
 namespace learn_topic
 {
-    using MsgCallback = std::function<void(const std_msgs::msg::String::SharedPtr msg)>;
+    using MsgCallback = std::function<void(const base_interfaces_demo::msg::Student msg)>;
 
     class TopicSubscriber : public rclcpp::Node
     {
@@ -28,11 +28,11 @@ namespace learn_topic
         ~TopicSubscriber();
 
     private:
-        void msgcallback(const std_msgs::msg::String::SharedPtr msg);
+        void msgcallback(const base_interfaces_demo::msg::Student msg);
 
     private:
-        MsgCallback                                            msgcallback_;
-        rclcpp::Subscription<std_msgs::msg::String>::SharedPtr subscriber ;
+        MsgCallback                                                         msgcallback_;
+        rclcpp::Subscription<base_interfaces_demo::msg::Student>::SharedPtr subscriber ;
     };
 }
 

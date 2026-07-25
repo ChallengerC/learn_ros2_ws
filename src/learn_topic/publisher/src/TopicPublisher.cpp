@@ -8,7 +8,7 @@ namespace learn_topic
     ,count_(0)
     {
         //
-        publisher_ = this->create_publisher<std_msgs::msg::String>("/learn_topic", 10);
+        publisher_ = this->create_publisher<base_interfaces_demo::msg::Student>("/topic_stu", 10);
 
         //
         timecallback_ = std::bind(&TopicPublisher::timer_callback, this);
@@ -24,11 +24,16 @@ namespace learn_topic
     void TopicPublisher::timer_callback()
     {
         //
-        auto msg = std_msgs::msg::String();
-        msg.data = "Hello, World! " + std::to_string(count_++);
+        auto stumsg = base_interfaces_demo::msg::Student();
+        {
+            stumsg.name   = "张三";
+            stumsg.age    = count_++;
+            stumsg.height = 1.65;
+        }
 
-        //
-        RCLCPP_INFO(this->get_logger(), "发布的消息: '%s'", msg.data.c_str());
-        publisher_->publish(msg);
+        RCLCPP_INFO(this->get_logger(), "学生信息发布：name=%s, age =%d, height= %.2f",
+                    stumsg.name.c_str(), stumsg.age, stumsg.height);
+
+        publisher_->publish(stumsg);
     }
 }

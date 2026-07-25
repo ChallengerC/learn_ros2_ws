@@ -21,7 +21,7 @@ include_directories(include)
 
 # 构建可执行文件
 add_executable(topic_subscriber
-  src/main.cpp
+  main.cpp
   src/TopicSubscriber.cpp
 )
 
