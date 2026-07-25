@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>learn_topic</name>
+  <name>learn_topic_publisher</name>
   <version>0.0.0</version>
-  <description>TODO: Package description</description>
+  <description>话题发布节点</description>
   <maintainer email="Chenzhihong777@outlook.com">czh</maintainer>
   <license>Apache-2.0</license>
 

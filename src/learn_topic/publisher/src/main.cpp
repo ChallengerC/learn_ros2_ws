@@ -1,5 +1,5 @@
-#include "learn_topic/TopicPublisher.h"
-#include <memory.h>
+#include "learn_topic_publisher/TopicPublisher.h"
+#include <memory>
 
 int main(int argc, char * argv[])
 {
@@ -14,5 +14,7 @@ int main(int argc, char * argv[])
 
     //
     rclcpp::shutdown();
+
+    //
     return 0;
 }
