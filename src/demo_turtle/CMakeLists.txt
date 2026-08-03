@@ -20,8 +20,29 @@ ament_target_dependencies(
   "turtlesim"
   "geometry_msgs"
 )
+
+add_executable(demo_server src/demo_server.cpp)
+ament_target_dependencies(
+  demo_server
+  "rclcpp"
+  "turtlesim"
+  "geometry_msgs"
+  "base_interfaces_demo"
+)
+
+add_executable(demo_client src/demo_client.cpp)
+ament_target_dependencies(
+  demo_client
+  "rclcpp"
+  "turtlesim"
+  "geometry_msgs"
+  "base_interfaces_demo"
+)
+
 install(TARGETS 
   demo_pub_sub
+  demo_client
+  demo_server
   DESTINATION lib/${PROJECT_NAME})
 
 install(DIRECTORY launch DESTINATION share/${PROJECT_NAME})
